@@ -14,7 +14,7 @@ class PixCobDTOTest extends TestCase
     {
         $calendario = new CalendarioDTO(expiracao: 3600);
         $valor = new ValorDTO(original: '123.45');
-        $devedor = new DevedorDTO(nome: 'João', cpf: '12345678900');
+        $devedor = new DevedorDTO(nome: 'João', cpf: '52998224725');
 
         $cob = new CobDTO(
             calendario: $calendario,
@@ -26,7 +26,7 @@ class PixCobDTOTest extends TestCase
 
         $this->assertEquals('123.45', $cob->valor->original);
         $this->assertEquals(3600, $cob->calendario->expiracao);
-        $this->assertEquals('12345678900', $cob->devedor->cpf);
+        $this->assertEquals('52998224725', $cob->devedor->cpf);
     }
 
     public function testSerialization()
@@ -38,14 +38,14 @@ class PixCobDTOTest extends TestCase
             'solicitacaoPagador' => 'Pay me',
             'devedor' => [
                 'nome' => 'Jane',
-                'cpf' => '111.222.333-44',
+                'cpf' => '529.982.247-25',
             ],
         ];
 
         $cob = CobDTO::fromArray($data);
 
         $this->assertEquals('50.00', $cob->valor->original);
-        $this->assertEquals('11122233344', $cob->devedor->cpf); // Check sanitization
+        $this->assertEquals('52998224725', $cob->devedor->cpf); // Check sanitization
         $this->assertEquals('KEY-TEST', $cob->chave);
     }
 }

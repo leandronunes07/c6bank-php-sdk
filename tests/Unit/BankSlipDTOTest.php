@@ -23,7 +23,7 @@ class BankSlipDTOTest extends TestCase
 
         $payer = new PayerDTO(
             'John Doe',
-            '123.456.789-00',
+            '529.982.247-25',
             $address
         );
 
@@ -47,7 +47,7 @@ class BankSlipDTOTest extends TestCase
             'dueDate' => '2024-01-01',
             'payer' => [
                 'name' => 'Jane Doe',
-                'document' => '98765432100',
+                'document' => '52998224725',
                 'address' => [
                     'street' => 'Rua A',
                     'number' => '10',
