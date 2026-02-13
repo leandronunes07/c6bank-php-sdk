@@ -1,0 +1,685 @@
+{
+	"info": {
+		"_postman_id": "99c91bc2-8e62-48d5-8d22-12d4f3d9bbd2",
+		"name": "API de Boleto",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Emitir boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"external_reference_id\": \"\",\n    \"amount\": 100.50,\n    \"due_date\": \"\",\n    \"instructions\": [\n        \"\",\n        \"\"\n    ],\n    \"discount\": {\n        \"discount_type\": \"V\",\n        \"first\": {\n            \"value\": 4.15,\n            \"dead_line\": 4\n        },\n        \"second\": {\n            \"value\": 2.50,\n            \"dead_line\": 3\n        },\n        \"third\": {\n            \"value\": 3.78,\n            \"dead_line\": 2\n        }\n    },\n    \"interest\": {\n        \"type\": \"V\",\n        \"value\": 12.35,\n        \"dead_line\": 0\n    },\n    \"fine\": {\n        \"type\": \"V\",\n        \"value\": 14.25,\n        \"dead_line\": 0\n    },\n    \"payer\": {\n        \"name\": \"\",\n        \"tax_id\": \"\",\n        \"email\": \"\",\n        \"address\": {\n            \"street\": \"\",\n            \"number\": 123,\n            \"complement\": \"\",\n            \"city\": \"\",\n            \"state\": \"\",\n            \"zip_code\": \"\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/bank_slips",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Emitir boleto - Campos Requiridos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"external_reference_id\": \"\",\n    \"amount\": 100.50,\n    \"due_date\": \"\",\n    \"payer\": {\n        \"name\": \"\",\n        \"tax_id\": \"\",\n        \"email\": \"\",\n        \"address\": {\n            \"street\": \"\",\n            \"number\": 123,\n            \"complement\": \"\",\n            \"city\": \"\",\n            \"state\": \"\",\n            \"zip_code\": \"\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/bank_slips",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 0.00,\n    \"due_date\": \"2025-12-31\",\n    \"discount\": {},\n    \"interest\": {},\n    \"fine\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/bank_slips/{{bank_slip_id}}",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips",
+								"{{bank_slip_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/bank_slips/{{bank_slip_id}}",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips",
+								"{{bank_slip_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gerar PDF de boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/bank_slips/{{bank_slip_id}}/pdf",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips",
+								"{{bank_slip_id}}",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/bank_slips/{{bank_slip_id}}/cancel",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips",
+								"{{bank_slip_id}}",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produção",
+			"item": [
+				{
+					"name": "Emitir boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n     \"external_reference_id\": \"\",\n    \"amount\": 100.50,\n    \"due_date\": \"\",\n    \"instructions\": [\n        \"\",\n        \"\"\n    ],\n    \"discount\": {\n        \"discount_type\": \"V\",\n        \"first\": {\n            \"value\": 4.15,\n            \"dead_line\": 4\n        },\n        \"second\": {\n            \"value\": 2.50,\n            \"dead_line\": 3\n        },\n        \"third\": {\n            \"value\": 3.78,\n            \"dead_line\": 2\n        }\n    },\n    \"interest\": {\n        \"type\": \"V\",\n        \"value\": 12.35,\n        \"dead_line\": 0\n    },\n    \"fine\": {\n        \"type\": \"V\",\n        \"value\": 14.25,\n        \"dead_line\": 0\n    },\n    \"payer\": {\n        \"name\": \"\",\n        \"tax_id\": \"\",\n        \"email\": \"\",\n        \"address\": {\n            \"street\": \"\",\n            \"number\": 123,\n            \"complement\": \"\",\n            \"city\": \"\",\n            \"state\": \"\",\n            \"zip_code\": \"\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/bank_slips",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Emitir boleto - Campos Requiridos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"external_reference_id\": \"\",\n    \"amount\": 100.50,\n    \"due_date\": \"\",\n    \"payer\": {\n        \"name\": \"\",\n        \"tax_id\": \"\",\n        \"email\": \"\",\n        \"address\": {\n            \"street\": \"\",\n            \"number\": 123,\n            \"complement\": \"\",\n            \"city\": \"\",\n            \"state\": \"\",\n            \"zip_code\": \"\"\n        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/bank_slips",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Alterar boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"amount\": 0.00,\n    \"due_date\": \"2025-12-31\",\n    \"discount\": {},\n    \"interest\": {},\n    \"fine\": {}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/bank_slips/{{bank_slip_id}}",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips",
+								"{{bank_slip_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/bank_slips/{{bank_slip_id}}",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips",
+								"{{bank_slip_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Gerar PDF de boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/bank_slips/{{bank_slip_id}}/pdf",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips",
+								"{{bank_slip_id}}",
+								"pdf"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar boleto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "person_Id",
+								"value": "123",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/bank_slips/{{bank_slip_id}}/cancel",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"bank_slips",
+								"{{bank_slip_id}}",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,891 @@
+{
+	"info": {
+		"_postman_id": "225e6018-69e5-4d9f-b1ba-d19d93d8af03",
+		"name": "API De Webhook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Boleto",
+					"item": [
+						{
+							"name": "Cadastro WebHooks BANK_SLIP",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "partner-software-name",
+										"value": "Teste",
+										"type": "default"
+									},
+									{
+										"key": "partner-software-version",
+										"value": "1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"{{sua_url}}\",\n    \"service\": \"BANK_SLIP\"\n}"
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v1/webhooks/",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta WebHooks BANK_SLIP",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v1/webhooks/?service=BANK_SLIP",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									],
+									"query": [
+										{
+											"key": "service",
+											"value": "BANK_SLIP"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclusao WebHooks BANK_SLIP",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v1/webhooks/?service=BANK_SLIP",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									],
+									"query": [
+										{
+											"key": "service",
+											"value": "BANK_SLIP"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Checkout",
+					"item": [
+						{
+							"name": "Cadastro WebHooks CHECKOUT",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "partner-software-name",
+										"value": "Teste",
+										"type": "default"
+									},
+									{
+										"key": "partner-software-version",
+										"value": "1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"{{sua_url}}\",\n    \"service\": \"CHECKOUT\"\n}"
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v1/webhooks/",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta WebHooks CHECKOUT",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v1/webhooks/?service=CHECKOUT",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									],
+									"query": [
+										{
+											"key": "service",
+											"value": "CHECKOUT"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclusao WebHooks CHECKOUT",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v1/webhooks/?service=CHECKOUT",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									],
+									"query": [
+										{
+											"key": "service",
+											"value": "CHECKOUT"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PIX",
+					"item": [
+						{
+							"name": "Cadastro WebHooks PIX",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"webhookUrl\": \"{{sua_url}}\"\n}"
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v2/pix/webhook/{{sua_chave_pix}}",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v2",
+										"pix",
+										"webhook",
+										"{{sua_chave_pix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta WebHooks PIX",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v2/pix/webhook/{{sua_chave_pix}}",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v2",
+										"pix",
+										"webhook",
+										"{{sua_chave_pix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclusão WebHooks PIX",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v2/pix/webhook/{{sua_chave_pix}}",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v2",
+										"pix",
+										"webhook",
+										"{{sua_chave_pix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta WebHooks PIX",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api-sandbox.c6bank.info/v2/pix/webhook",
+									"protocol": "https",
+									"host": [
+										"baas-api-sandbox",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v2",
+										"pix",
+										"webhook"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Produção",
+			"item": [
+				{
+					"name": "Boleto",
+					"item": [
+						{
+							"name": "Cadastro WebHooks BANK_SLIP",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "partner-software-name",
+										"value": "Teste",
+										"type": "default"
+									},
+									{
+										"key": "partner-software-version",
+										"value": "1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"{{sua_url}}\",\n    \"service\": \"BANK_SLIP\"\n}"
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v1/webhooks/",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta WebHooks BANK_SLIP",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v1/webhooks/?service=BANK_SLIP",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									],
+									"query": [
+										{
+											"key": "service",
+											"value": "BANK_SLIP"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclusao WebHooks BANK_SLIP",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v1/webhooks/?service=BANK_SLIP",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									],
+									"query": [
+										{
+											"key": "service",
+											"value": "BANK_SLIP"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Checkout",
+					"item": [
+						{
+							"name": "Cadastro WebHooks CHECKOUT",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "partner-software-name",
+										"value": "Teste",
+										"type": "default"
+									},
+									{
+										"key": "partner-software-version",
+										"value": "1.0",
+										"type": "default"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"url\": \"{{sua_url}}\",\n    \"service\": \"CHECKOUT\"\n}"
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v1/webhooks/",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta WebHooks CHECKOUT",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v1/webhooks/?service=CHECKOUT",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									],
+									"query": [
+										{
+											"key": "service",
+											"value": "CHECKOUT"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclusao WebHooks CHECKOUT",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v1/webhooks/?service=CHECKOUT",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v1",
+										"webhooks",
+										""
+									],
+									"query": [
+										{
+											"key": "service",
+											"value": "CHECKOUT"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PIX",
+					"item": [
+						{
+							"name": "Cadastro WebHooks PIX",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"webhookUrl\": \"{{sua_url}}\"\n}"
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v2/pix/webhook/{{sua_chave_pix}}",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v2",
+										"pix",
+										"webhook",
+										"{{sua_chave_pix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta WebHooks PIX",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v2/pix/webhook/{{sua_chave_pix}}",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v2",
+										"pix",
+										"webhook",
+										"{{sua_chave_pix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Exclusão WebHooks PIX",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v2/pix/webhook/{{sua_chave_pix}}",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v2",
+										"pix",
+										"webhook",
+										"{{sua_chave_pix}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Consulta WebHooks PIX",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{your_access_token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://baas-api.c6bank.info/v2/pix/webhook",
+									"protocol": "https",
+									"host": [
+										"baas-api",
+										"c6bank",
+										"info"
+									],
+									"path": [
+										"v2",
+										"pix",
+										"webhook"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

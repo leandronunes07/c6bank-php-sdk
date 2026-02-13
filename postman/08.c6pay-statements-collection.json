@@ -1,0 +1,187 @@
+{
+	"info": {
+		"_postman_id": "b2c4e4d7-3bb4-40a5-97c6-54d5c9658400",
+		"name": "API de Transações e Recebíveis C6 Pay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Consultar recebíveis",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/c6pay/statement/receivables?page=1&start_date=YYYY-MM-DD",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"c6pay",
+								"statement",
+								"receivables"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "start_date",
+									"value": "YYYY-MM-DD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar transações",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/c6pay/statement/transactions?page=1&start_date=YYYY-MM-DD",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"c6pay",
+								"statement",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "start_date",
+									"value": "YYYY-MM-DD"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produção",
+			"item": [
+				{
+					"name": "Consultar recebíveis",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/c6pay/statement/receivables?page=1&start_date=YYYY-MM-DD",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"c6pay",
+								"statement",
+								"receivables"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "start_date",
+									"value": "YYYY-MM-DD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar transações",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/c6pay/statement/transactions?page=1&start_date=YYYY-MM-DD",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"c6pay",
+								"statement",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "start_date",
+									"value": "YYYY-MM-DD"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

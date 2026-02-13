@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "b72b47ec-4fa0-4e7b-b1cc-5e8f1e6614f9",
+		"name": "API de Checkout",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Criar um checkout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 123.45,\n  \"description\": \"Cobrança do produto A, para o cliente B, pedido 1234.\",\n  \"external_reference_id\": \"A123456789\",\n  \"payer\": {\n    \"name\": \"José da Silva\",\n    \"tax_id\": \"12345678910\",\n    \"email\": \"pagador@email.com.br\",\n    \"phone_number\": \"11993900134\",\n    \"address\": {\n      \"street\": \"Av. Nove de Julho\",\n      \"number\": 123,\n      \"complement\": \"Complemento\",\n      \"city\": \"Rio de Janeiro\",\n      \"state\": \"RJ\",\n      \"zip_code\": \"05093000\"\n    }\n  },\n  \"payment\": {\n    \"card\": {\n      \"authenticate\": \"NOT_REQUIRED\",\n      \"capture\": true,\n      \"fixed_installments\": true,\n      \"installments\": 1,\n      \"interest_type\": \"BY_SELLER\",\n      \"recurrent\": false,\n      \"save_card\": true,\n      \"soft_descriptor\": \"EM BREVE\",\n      \"type\": \"DEBIT\"\n    },\n    \"pix\": {\n      \"key\": \"AUTO\"\n    }\n  },\n  \"redirect_url\": \"http://www.seusite.com.br/finalizaPedido\"\n}"
+						},
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/checkouts/",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"checkouts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autorizar um checkout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 123.45,\n  \"description\": \"Cobrança do produto A, para o cliente B, pedido 1234.\",\n  \"external_reference_id\": \"A123456789\",\n  \"payer\": {\n    \"name\": \"José da Silva\",\n    \"tax_id\": \"12345678910\",\n    \"email\": \"pagador@email.com.br\",\n    \"phone_number\": \"11993900134\",\n    \"address\": {\n      \"street\": \"Av. Nove de Julho\",\n      \"number\": 123,\n      \"complement\": \"Complemento\",\n      \"city\": \"Rio de Janeiro\",\n      \"state\": \"RJ\",\n      \"zip_code\": \"05093000\"\n    }\n  },\n  \"redirect_url\": \"http://www.seusite.com.br/finalizaPedido\",\n  \"payment\": {\n    \"card\": {\n      \"authenticate\": \"NOT_REQUIRED\",\n      \"capture\": true,\n      \"fixed_installments\": true,\n      \"interest_type\": \"BY_SELLER\",\n      \"installments\": 1,\n      \"recurrent\": false,\n      \"save_card\": true,\n      \"card_info\": {\n        \"token\": \"be4cbeb1-abb2-4913-8165-f86962143fa021\"\n      },\n      \"soft_descriptor\": \"EM BREVE\",\n      \"type\": \"DEBIT\"\n    },\n    \"pix\": {\n      \"key\": \"AUTO\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/checkouts/authorize",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"checkouts",
+								"authorize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um link gerado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/checkouts/{{id}}",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"checkouts",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar um checkout",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/checkouts/{{id}}/cancel",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"checkouts",
+								"{{id}}",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produção",
+			"item": [
+				{
+					"name": "Criar um checkout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 123.45,\n  \"description\": \"Cobrança do produto A, para o cliente B, pedido 1234.\",\n  \"external_reference_id\": \"A123456789\",\n  \"payer\": {\n    \"name\": \"José da Silva\",\n    \"tax_id\": \"12345678910\",\n    \"email\": \"pagador@email.com.br\",\n    \"phone_number\": \"11993900134\",\n    \"address\": {\n      \"street\": \"Av. Nove de Julho\",\n      \"number\": 123,\n      \"complement\": \"Complemento\",\n      \"city\": \"Rio de Janeiro\",\n      \"state\": \"RJ\",\n      \"zip_code\": \"05093000\"\n    }\n  },\n  \"payment\": {\n    \"card\": {\n      \"authenticate\": \"NOT_REQUIRED\",\n      \"capture\": true,\n      \"fixed_installments\": true,\n      \"installments\": 1,\n      \"interest_type\": \"BY_SELLER\",\n      \"recurrent\": false,\n      \"save_card\": true,\n      \"soft_descriptor\": \"EM BREVE\",\n      \"type\": \"DEBIT\"\n    },\n    \"pix\": {\n      \"key\": \"AUTO\"\n    }\n  },\n  \"redirect_url\": \"http://www.seusite.com.br/finalizaPedido\"\n}"
+						},
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/checkouts/",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"checkouts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Autorizar um checkout",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"amount\": 123.45,\n  \"description\": \"Cobrança do produto A, para o cliente B, pedido 1234.\",\n  \"external_reference_id\": \"A123456789\",\n  \"payer\": {\n    \"name\": \"José da Silva\",\n    \"tax_id\": \"12345678910\",\n    \"email\": \"pagador@email.com.br\",\n    \"phone_number\": \"11993900134\",\n    \"address\": {\n      \"street\": \"Av. Nove de Julho\",\n      \"number\": 123,\n      \"complement\": \"Complemento\",\n      \"city\": \"Rio de Janeiro\",\n      \"state\": \"RJ\",\n      \"zip_code\": \"05093000\"\n    }\n  },\n  \"redirect_url\": \"http://www.seusite.com.br/finalizaPedido\",\n  \"payment\": {\n    \"card\": {\n      \"authenticate\": \"NOT_REQUIRED\",\n      \"capture\": true,\n      \"fixed_installments\": true,\n      \"interest_type\": \"BY_SELLER\",\n      \"installments\": 1,\n      \"recurrent\": false,\n      \"save_card\": true,\n      \"card_info\": {\n        \"token\": \"be4cbeb1-abb2-4913-8165-f86962143fa021\"\n      },\n      \"soft_descriptor\": \"EM BREVE\",\n      \"type\": \"DEBIT\"\n    },\n    \"pix\": {\n      \"key\": \"AUTO\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/checkouts/authorize",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"checkouts",
+								"authorize"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consultar um link gerado",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/checkouts/{{id}}",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"checkouts",
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancelar um checkout",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/checkouts/{{id}}/cancel",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"checkouts",
+								"{{id}}",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

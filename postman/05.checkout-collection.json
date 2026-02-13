@@ -1,0 +1,175 @@
+{
+	"info": {
+		"_postman_id": "00b7707f-5f9a-4992-8ce2-69e9356bfabd",
+		"name": "API De Extrato",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Consultar extrato​",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/statement/?start_date=2025-10-10&end_date=2025-11-10",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"statement",
+								""
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2025-10-10"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-11-10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produção",
+			"item": [
+				{
+					"name": "Consultar extrato",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{your_access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/statement/?start_date=2025-10-10&end_date=2025-11-10",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"statement",
+								""
+							],
+							"query": [
+								{
+									"key": "start_date",
+									"value": "2025-10-10"
+								},
+								{
+									"key": "end_date",
+									"value": "2025-11-10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "bff_token",
+			"value": ""
+		},
+		{
+			"key": "c6_token",
+			"value": ""
+		},
+		{
+			"key": "logged_account",
+			"value": ""
+		},
+		{
+			"key": "logged_branch",
+			"value": ""
+		},
+		{
+			"key": "logged_account_id",
+			"value": ""
+		},
+		{
+			"key": "logged_tax_id",
+			"value": ""
+		},
+		{
+			"key": "logged_person_id",
+			"value": ""
+		},
+		{
+			"key": "transfer_pix_transaction_token",
+			"value": ""
+		},
+		{
+			"key": "transfer_pix_end_to_end_id",
+			"value": ""
+		},
+		{
+			"key": "transactionDate",
+			"value": ""
+		},
+		{
+			"key": "jws_secret",
+			"value": ""
+		},
+		{
+			"key": "current_jwt_signature",
+			"value": ""
+		},
+		{
+			"key": "current_jws_signature",
+			"value": ""
+		},
+		{
+			"key": "value",
+			"value": ""
+		},
+		{
+			"key": "new_fraud_transaction_id",
+			"value": ""
+		},
+		{
+			"key": "new_idempotency_key",
+			"value": ""
+		},
+		{
+			"key": "last_signature_fraud_transaction_id",
+			"value": ""
+		},
+		{
+			"key": "last_signature_idempotency_key",
+			"value": ""
+		},
+		{
+			"key": "correlation_id_gen",
+			"value": ""
+		},
+		{
+			"key": "receipt_id",
+			"value": ""
+		}
+	]
+}

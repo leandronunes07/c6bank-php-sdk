@@ -1,0 +1,371 @@
+{
+	"info": {
+		"_postman_id": "1d7c9450-6fe4-48fe-b131-e8809dd4aa65",
+		"name": "API De Autenticação",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Auth - Forma 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/auth",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Forma 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"token\", jsonData.access_token);",
+									"",
+									"pm.test(\"Validando Status Code\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"/* Você pode usar o client_id e client_secret tanto no Auth quanto ",
+									"no Body.",
+									"",
+									"A forma usada nesta request é feita com o client_id e client_secret ",
+									"no Auth.  ",
+									"",
+									"Antes de enviar uma request, valide se as chaves client_id e ",
+									"client_secret já foram preenchidos, valide também se o seu ",
+									"certificado já foi importado no sistema!",
+									"",
+									"Você pode criar duas variaveis de ambiente e associá-las a {",
+									"{client_id}} e {{client_secret}}, as adicionando como valor na chave",
+									"ou você pode só passar os valores diretamente na chave.",
+									"",
+									"Na aba Tests, adicionamos uma tool que no retorno da API, ele já ",
+									"seta o valor do acess_token em uma variavel para ser usado em outras ",
+									"chamadas de API!",
+									"",
+									"*/"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://baas-api-sandbox.c6bank.info/v1/auth",
+							"protocol": "https",
+							"host": [
+								"baas-api-sandbox",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produção",
+			"item": [
+				{
+					"name": "Auth - Forma 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/auth",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Auth - Forma 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"pm.environment.set(\"token\", jsonData.access_token);",
+									"",
+									"pm.test(\"Validando Status Code\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"/* Você pode usar o client_id e client_secret tanto no Auth quanto ",
+									"no Body.",
+									"",
+									"A forma usada nesta request é feita com o client_id e client_secret ",
+									"no Auth.  ",
+									"",
+									"Antes de enviar uma request, valide se as chaves client_id e ",
+									"client_secret já foram preenchidos, valide também se o seu ",
+									"certificado já foi importado no sistema!",
+									"",
+									"Você pode criar duas variaveis de ambiente e associá-las a {",
+									"{client_id}} e {{client_secret}}, as adicionando como valor na chave",
+									"ou você pode só passar os valores diretamente na chave.",
+									"",
+									"Na aba Tests, adicionamos uma tool que no retorno da API, ele já ",
+									"seta o valor do acess_token em uma variavel para ser usado em outras ",
+									"chamadas de API!",
+									"",
+									"*/"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{client_secret}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{client_id}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://baas-api.c6bank.info/v1/auth",
+							"protocol": "https",
+							"host": [
+								"baas-api",
+								"c6bank",
+								"info"
+							],
+							"path": [
+								"v1",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "bff_token",
+			"value": ""
+		},
+		{
+			"key": "c6_token",
+			"value": ""
+		},
+		{
+			"key": "logged_account",
+			"value": ""
+		},
+		{
+			"key": "logged_branch",
+			"value": ""
+		},
+		{
+			"key": "logged_account_id",
+			"value": ""
+		},
+		{
+			"key": "logged_tax_id",
+			"value": ""
+		},
+		{
+			"key": "logged_person_id",
+			"value": ""
+		},
+		{
+			"key": "transfer_pix_transaction_token",
+			"value": ""
+		},
+		{
+			"key": "transfer_pix_end_to_end_id",
+			"value": ""
+		},
+		{
+			"key": "transactionDate",
+			"value": ""
+		},
+		{
+			"key": "jws_secret",
+			"value": ""
+		},
+		{
+			"key": "current_jwt_signature",
+			"value": ""
+		},
+		{
+			"key": "current_jws_signature",
+			"value": ""
+		},
+		{
+			"key": "value",
+			"value": ""
+		},
+		{
+			"key": "new_fraud_transaction_id",
+			"value": ""
+		},
+		{
+			"key": "new_idempotency_key",
+			"value": ""
+		},
+		{
+			"key": "last_signature_fraud_transaction_id",
+			"value": ""
+		},
+		{
+			"key": "last_signature_idempotency_key",
+			"value": ""
+		},
+		{
+			"key": "correlation_id_gen",
+			"value": ""
+		},
+		{
+			"key": "receipt_id",
+			"value": ""
+		}
+	]
+}
