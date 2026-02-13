@@ -3,10 +3,10 @@
 namespace LeandroNunes\C6Bank\DTOs\Pix;
 
 use LeandroNunes\C6Bank\DTOs\DTOInterface;
+use LeandroNunes\C6Bank\Helpers\Validator;
 
 class CobDTO implements DTOInterface
 {
-    use LeandroNunes\C6Bank\Helpers\Validator;
     public CalendarioDTO $calendario;
     public ?DevedorDTO $devedor;
     public ValorDTO $valor;

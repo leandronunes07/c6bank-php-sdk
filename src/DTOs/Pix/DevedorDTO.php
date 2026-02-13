@@ -3,10 +3,10 @@
 namespace LeandroNunes\C6Bank\DTOs\Pix;
 
 use LeandroNunes\C6Bank\DTOs\DTOInterface;
+use LeandroNunes\C6Bank\Helpers\Validator;
 
 class DevedorDTO implements DTOInterface
 {
-    use LeandroNunes\C6Bank\Helpers\Validator;
     public ?string $nome;
     public ?string $cpf;
     public ?string $cnpj;

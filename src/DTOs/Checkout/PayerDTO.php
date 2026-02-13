@@ -3,10 +3,10 @@
 namespace LeandroNunes\C6Bank\DTOs\Checkout;
 
 use LeandroNunes\C6Bank\DTOs\DTOInterface;
+use LeandroNunes\C6Bank\Helpers\Validator;
 
 class PayerDTO implements DTOInterface
 {
-    use LeandroNunes\C6Bank\Helpers\Validator;
     public string $name;
     public string $taxId; // CPF/CNPJ
     public string $email;
