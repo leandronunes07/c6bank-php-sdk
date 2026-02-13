@@ -23,7 +23,7 @@ class Statement extends Resource
             'page' => $page,
         ];
 
-        $response = $this->client->get('/statement', $query);
+        $response = $this->client->get('/v1/statement', $query);
 
         $items = [];
         $data = $response['items'] ?? $response; // Fallback

@@ -1,0 +1,9 @@
+<?php
+
+return [
+    'client_id' => 'YOUR_CLIENT_ID',
+    'client_secret' => 'YOUR_CLIENT_SECRET',
+    'certificate' => __DIR__ . '/path/to/certificate.pem',
+    'private_key' => __DIR__ . '/path/to/private.key',
+    'sandbox' => true, // Set to false for production
+];

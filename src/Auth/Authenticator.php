@@ -20,12 +20,13 @@ class Authenticator
         string $clientId,
         string $clientSecret,
         string $tokenUrl = 'https://auth.c6bank.com.br/auth/realms/c6bank/protocol/openid-connect/token',
-        ?CacheInterface $cache = null
+        ?CacheInterface $cache = null,
+        array $guzzleOptions = []
     ) {
         $this->clientId = $clientId;
         $this->clientSecret = $clientSecret;
         $this->tokenUrl = $tokenUrl;
-        $this->httpClient = new GuzzleClient();
+        $this->httpClient = new GuzzleClient($guzzleOptions);
         $this->cache = $cache;
     }
 

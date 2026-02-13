@@ -26,7 +26,7 @@ class Client
         $this->logger = $logger;
 
         $defaultOptions = [
-            'base_uri' => $this->baseUrl,
+
             'headers' => [
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
@@ -75,7 +75,8 @@ class Client
                 ]);
             }
 
-            $response = $this->httpClient->request($method, $uri, $options);
+            $url = $this->baseUrl . '/' . ltrim($uri, '/');
+            $response = $this->httpClient->request($method, $url, $options);
             $contents = $response->getBody()->getContents();
 
             if ($this->logger) {

@@ -21,7 +21,7 @@ class BankingWebhook extends Resource
         ];
 
         // POST /v1/webhooks
-        $this->client->post('/webhooks', $payload);
+        $this->client->post('/v1/webhooks', $payload);
     }
 
     /**
@@ -33,7 +33,7 @@ class BankingWebhook extends Resource
     public function list(string $service): array
     {
         // GET /v1/webhooks?service=...
-        $response = $this->client->get('/webhooks', ['service' => $service]);
+        $response = $this->client->get('/v1/webhooks', ['service' => $service]);
 
         // Response is usually a list of webhooks
         $webhooks = [];
@@ -53,6 +53,6 @@ class BankingWebhook extends Resource
     public function delete(string $service): void
     {
         // DELETE /v1/webhooks?service=...
-        $this->client->delete('/webhooks', ['service' => $service]);
+        $this->client->delete('/v1/webhooks', ['service' => $service]);
     }
 }

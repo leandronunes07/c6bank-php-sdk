@@ -21,7 +21,7 @@ class BankSlip extends Resource
         // Adjust payload structure according to C6 API requirements if needed
         // For now, assuming direct mapping. In real scenario, might need key mapping.
 
-        $response = $this->client->post('/bank-slips', $payload);
+        $response = $this->client->post('/v1/bank_slips', $payload);
 
         return BankSlipDTO::fromArray($response);
     }
@@ -35,7 +35,7 @@ class BankSlip extends Resource
      */
     public function get(string $id): BankSlipDTO
     {
-        $response = $this->client->get("/bank-slips/{$id}");
+        $response = $this->client->get("/v1/bank_slips/{$id}");
 
         return BankSlipDTO::fromArray($response);
     }
@@ -66,7 +66,7 @@ class BankSlip extends Resource
         // return $response->getBody()->getContents();
 
         // For MVP, letting standard get, assuming it might need adjustment during testing.
-        $response = $this->client->get("/bank-slips/{$id}/pdf");
+        $response = $this->client->get("/v1/bank_slips/{$id}/pdf");
 
         return $response['content'] ?? ''; // Placeholder
     }
@@ -80,7 +80,7 @@ class BankSlip extends Resource
      */
     public function cancel(string $id): bool
     {
-        $this->client->put("/bank-slips/{$id}/cancel");
+        $this->client->put("/v1/bank_slips/{$id}/cancel");
 
         return true;
     }

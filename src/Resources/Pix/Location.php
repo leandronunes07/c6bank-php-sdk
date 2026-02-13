@@ -9,14 +9,14 @@ class Location extends Resource
 {
     public function create(string $type = 'cob'): LocationDTO
     {
-        $response = $this->client->post("/pix/loc", ['tipoCob' => $type]);
+        $response = $this->client->post("/v2/pix/loc", ['tipoCob' => $type]);
 
         return LocationDTO::fromArray($response); // Returns id, location, tipoCob, criacao
     }
 
     public function get(string $id): LocationDTO
     {
-        $response = $this->client->get("/pix/loc/{$id}");
+        $response = $this->client->get("/v2/pix/loc/{$id}");
 
         return LocationDTO::fromArray($response);
     }
@@ -29,6 +29,6 @@ class Location extends Resource
 
     public function unlink(string $id): void
     {
-        $this->client->delete("/pix/loc/{$id}/txid");
+        $this->client->delete("/v2/pix/loc/{$id}/txid");
     }
 }

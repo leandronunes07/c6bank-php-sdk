@@ -19,9 +19,9 @@ class Cob extends Resource
         $payload = $cob->toArray();
 
         if ($txid) {
-            $response = $this->client->put("/pix/cob/{$txid}", $payload);
+            $response = $this->client->put("/v2/pix/cob/{$txid}", $payload);
         } else {
-            $response = $this->client->post("/pix/cob", $payload);
+            $response = $this->client->post("/v2/pix/cob", $payload);
         }
 
         return CobDTO::fromArray($response);
@@ -35,7 +35,7 @@ class Cob extends Resource
      */
     public function get(string $txid): CobDTO
     {
-        $response = $this->client->get("/pix/cob/{$txid}");
+        $response = $this->client->get("/v2/pix/cob/{$txid}");
 
         return CobDTO::fromArray($response);
     }
@@ -54,7 +54,7 @@ class Cob extends Resource
         // Important: 'chave' usually immutable.
         $payload = $cob->toArray();
 
-        $response = $this->client->patch("/pix/cob/{$txid}", $payload);
+        $response = $this->client->patch("/v2/pix/cob/{$txid}", $payload);
 
         return CobDTO::fromArray($response);
     }

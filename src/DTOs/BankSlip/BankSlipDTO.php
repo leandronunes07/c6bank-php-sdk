@@ -43,23 +43,23 @@ class BankSlipDTO implements DTOInterface
         return array_filter([
             'id' => $this->id,
             'amount' => $this->amount,
-            'dueDate' => $this->dueDate,
-            'yourNumber' => $this->yourNumber,
+            'due_date' => $this->dueDate,
+            'external_reference_id' => $this->yourNumber,
             'payer' => $this->payer->toArray(),
             'pdfUrl' => $this->pdfUrl,
             'barCode' => $this->barCode,
             'digitableLine' => $this->digitableLine,
             'status' => $this->status,
-        ], fn ($value) => !is_null($value));
+        ], fn($value) => !is_null($value));
     }
 
     public static function fromArray(array $data): self
     {
         return new self(
             (float) ($data['amount'] ?? 0.0),
-            $data['dueDate'] ?? '',
+            $data['due_date'] ?? '',
             PayerDTO::fromArray($data['payer'] ?? []),
-            $data['yourNumber'] ?? null,
+            $data['external_reference_id'] ?? null,
             $data['id'] ?? null,
             $data['pdfUrl'] ?? null,
             $data['barCode'] ?? null,

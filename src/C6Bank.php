@@ -9,8 +9,8 @@ class C6Bank
 {
     private Client $client;
 
-    public const SANDBOX_URL = 'https://sandbox-api.c6bank.com.br'; // Example URL
-    public const PRODUCTION_URL = 'https://api.c6bank.com.br'; // Example URL
+    public const SANDBOX_URL = 'https://baas-api-sandbox.c6bank.info';
+    public const PRODUCTION_URL = 'https://baas-api.c6bank.info';
 
     public function __construct(array $config)
     {
@@ -31,7 +31,7 @@ class C6Bank
         $cache = $config['cache'] ?? null;
         $logger = $config['logger'] ?? null;
 
-        $authenticator = new Authenticator($clientId, $clientSecret, 'https://auth.c6bank.com.br/auth/realms/c6bank/protocol/openid-connect/token', $cache);
+        $authenticator = new Authenticator($clientId, $clientSecret, $baseUrl . '/v1/auth', $cache, $guzzleOptions);
         $this->client = new Client($authenticator, $baseUrl, $guzzleOptions, $logger);
     }
 

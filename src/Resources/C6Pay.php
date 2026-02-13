@@ -21,7 +21,7 @@ class C6Pay extends Resource
             'page' => $page,
         ];
 
-        $response = $this->client->get('/c6pay/statement/receivables', $query);
+        $response = $this->client->get('/v1/c6pay/statement/receivables', $query);
 
         $items = [];
         $data = $response['items'] ?? $response;
@@ -50,7 +50,7 @@ class C6Pay extends Resource
             'page' => $page,
         ];
 
-        $response = $this->client->get('/c6pay/statement/transactions', $query);
+        $response = $this->client->get('/v1/c6pay/statement/transactions', $query);
 
         $items = [];
         $data = $response['items'] ?? $response;

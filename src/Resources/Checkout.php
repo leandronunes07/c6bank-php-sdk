@@ -16,7 +16,7 @@ class Checkout extends Resource
     {
         $payload = $checkout->toArray();
         // POST /v1/checkouts
-        $response = $this->client->post('/checkouts', $payload);
+        $response = $this->client->post('/v1/checkouts', $payload);
 
         return CheckoutDTO::fromArray($response);
     }
@@ -30,7 +30,7 @@ class Checkout extends Resource
     public function get(string $id): CheckoutDTO
     {
         // GET /v1/checkouts/{id}
-        $response = $this->client->get("/checkouts/{$id}");
+        $response = $this->client->get("/v1/checkouts/{$id}");
 
         return CheckoutDTO::fromArray($response);
     }
@@ -44,7 +44,7 @@ class Checkout extends Resource
     public function cancel(string $id): bool
     {
         // PUT /v1/checkouts/{id}/cancel
-        $this->client->put("/checkouts/{$id}/cancel");
+        $this->client->put("/v1/checkouts/{$id}/cancel");
 
         return true;
     }
@@ -61,7 +61,7 @@ class Checkout extends Resource
         // O body geralmente precisa dos dados da transação/card para autorizar se for manual.
         // Pelo postman: payload igual ao de create.
         $payload = $checkout->toArray();
-        $response = $this->client->post("/checkouts/authorize", $payload);
+        $response = $this->client->post("/v1/checkouts/authorize", $payload);
 
         return CheckoutDTO::fromArray($response);
     }

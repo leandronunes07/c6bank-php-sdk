@@ -26,8 +26,8 @@ class PayerDTO implements DTOInterface
     {
         return [
             'name' => $this->name,
-            'document' => $this->document,
-            'documentType' => $this->documentType,
+            'tax_id' => $this->document,
+            // 'documentType' => $this->documentType, // Not used/allowed by BankSlip API
             'address' => $this->address->toArray(),
         ];
     }
@@ -36,7 +36,7 @@ class PayerDTO implements DTOInterface
     {
         return new self(
             $data['name'] ?? '',
-            $data['document'] ?? '',
+            $data['tax_id'] ?? $data['document'] ?? '', // Fallback
             AddressDTO::fromArray($data['address'] ?? [])
         );
     }

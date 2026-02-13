@@ -18,7 +18,7 @@ class Lote extends Resource
     {
         $payload = $lote->toArray();
         // PUT /v2/pix/lotecobv/{id}
-        $response = $this->client->put("/pix/lotecobv/{$idLote}", $payload);
+        $response = $this->client->put("/v2/pix/lotecobv/{$idLote}", $payload);
 
         return LoteDTO::fromArray($response);
     }
@@ -34,7 +34,7 @@ class Lote extends Resource
     {
         $payload = $lote->toArray();
         // PATCH /v2/pix/lotecobv/{id}
-        $response = $this->client->patch("/pix/lotecobv/{$idLote}", $payload);
+        $response = $this->client->patch("/v2/pix/lotecobv/{$idLote}", $payload);
 
         return LoteDTO::fromArray($response);
     }
@@ -47,7 +47,7 @@ class Lote extends Resource
      */
     public function get(string $idLote): LoteDTO
     {
-        $response = $this->client->get("/pix/lotecobv/{$idLote}");
+        $response = $this->client->get("/v2/pix/lotecobv/{$idLote}");
 
         return LoteDTO::fromArray($response);
     }
@@ -61,6 +61,6 @@ class Lote extends Resource
     public function list(array $filters = []): array
     {
         // GET /v2/pix/lotecobv
-        return $this->client->get("/pix/lotecobv", $filters);
+        return $this->client->get("/v2/pix/lotecobv", $filters);
     }
 }

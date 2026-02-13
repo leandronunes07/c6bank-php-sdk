@@ -36,13 +36,12 @@ class AddressDTO implements DTOInterface
     {
         return array_filter([
             'street' => $this->street,
-            'number' => $this->number,
+            'number' => (int) $this->number,
             'complement' => $this->complement,
-            'neighborhood' => $this->neighborhood,
             'city' => $this->city,
             'state' => $this->state,
-            'zipCode' => $this->zipCode,
-        ], fn ($value) => !is_null($value));
+            'zip_code' => $this->zipCode,
+        ], fn($value) => !is_null($value));
     }
 
     public static function fromArray(array $data): self
@@ -53,7 +52,7 @@ class AddressDTO implements DTOInterface
             $data['neighborhood'] ?? '',
             $data['city'] ?? '',
             $data['state'] ?? '',
-            $data['zipCode'] ?? '',
+            $data['zip_code'] ?? $data['zipCode'] ?? '', // Support both
             $data['complement'] ?? null
         );
     }

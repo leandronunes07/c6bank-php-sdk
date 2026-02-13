@@ -17,7 +17,7 @@ class CobV extends Resource
     public function create(string $txid, CobvDTO $cobv): CobvDTO
     {
         $payload = $cobv->toArray();
-        $response = $this->client->put("/pix/cobv/{$txid}", $payload);
+        $response = $this->client->put("/v2/pix/cobv/{$txid}", $payload);
 
         return CobvDTO::fromArray($response);
     }
@@ -30,7 +30,7 @@ class CobV extends Resource
      */
     public function get(string $txid): CobvDTO
     {
-        $response = $this->client->get("/pix/cobv/{$txid}");
+        $response = $this->client->get("/v2/pix/cobv/{$txid}");
 
         return CobvDTO::fromArray($response);
     }
@@ -45,7 +45,7 @@ class CobV extends Resource
     public function update(string $txid, CobvDTO $cobv): CobvDTO
     {
         $payload = $cobv->toArray();
-        $response = $this->client->patch("/pix/cobv/{$txid}", $payload);
+        $response = $this->client->patch("/v2/pix/cobv/{$txid}", $payload);
 
         return CobvDTO::fromArray($response);
     }

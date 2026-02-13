@@ -28,7 +28,7 @@ class Schedule extends Resource
             ],
         ];
 
-        $response = $this->client->post('/schedule_payments/decode', $payload);
+        $response = $this->client->post('/v1/schedule_payments/decode', $payload);
 
         // Response should contain the decoded item
         $item = $response['items'][0] ?? [];
@@ -44,7 +44,7 @@ class Schedule extends Resource
     public function query(): array
     {
         // GET /v1/schedule_payments/query
-        return $this->client->get('/schedule_payments/query');
+        return $this->client->get('/v1/schedule_payments/query');
     }
 
     /**
@@ -56,7 +56,7 @@ class Schedule extends Resource
     public function items(string $groupId): array
     {
         // GET /v1/schedule_payments/{group_id}/items
-        return $this->client->get("/schedule_payments/{$groupId}/items");
+        return $this->client->get("/v1/schedule_payments/{$groupId}/items");
     }
 
     /**
@@ -69,6 +69,6 @@ class Schedule extends Resource
     public function deleteItem(string $groupId, string $itemId): void
     {
         // DELETE /v1/schedule_payments/{group_id}/items/{item_id}
-        $this->client->delete("/schedule_payments/{$groupId}/items/{$itemId}");
+        $this->client->delete("/v1/schedule_payments/{$groupId}/items/{$itemId}");
     }
 }

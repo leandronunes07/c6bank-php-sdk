@@ -1,4 +1,5 @@
 vendor/
+certs/*
 .idea/
 .vscode/
 *.lock
@@ -7,3 +8,4 @@ phpunit.xml
 .env
 .DS_Store
 .agent/
+config.php
